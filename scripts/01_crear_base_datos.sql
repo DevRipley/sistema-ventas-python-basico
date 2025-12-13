@@ -31,7 +31,10 @@ CREATE TABLE IF NOT EXISTS Producto (
 CREATE TABLE IF NOT EXISTS Empleado (
     ID_Empleado INTEGER PRIMARY KEY AUTOINCREMENT,
     Nombre TEXT NOT NULL,
-    Cargo TEXT
+    Cargo TEXT,
+    Usuario TEXT UNIQUE,
+    Contrasena TEXT,
+    Rol TEXT DEFAULT 'empleado' CHECK(Rol IN ('admin', 'empleado'))
 );
 
 -- Tabla de Ventas
